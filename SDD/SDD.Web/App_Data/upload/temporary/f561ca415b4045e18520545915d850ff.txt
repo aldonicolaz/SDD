@@ -1,0 +1,12 @@
+box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+
+#3c8dbc
+#F7F7F7
+#ECF0F5 
+#f8fafc
+
+border: 1px solid #ccc;
+border-radius: 3px;
+
+font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
