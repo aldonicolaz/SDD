@@ -15,6 +15,7 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:FcmMessageUser")]
     public sealed class FcmMessageUserRow : Row, IIdRow, INameRow
     {
+        [SortOrder(1, descending: true)]
         [DisplayName("Id Message"), Identity]
         public Int32? IdMessage
         {

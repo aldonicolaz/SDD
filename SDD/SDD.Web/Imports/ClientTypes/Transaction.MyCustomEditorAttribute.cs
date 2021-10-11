@@ -15,18 +15,6 @@ namespace SDD.Transaction
             : base(Key)
         {
         }
-
-        public object Cols
-        {
-            get { return GetOption<object>("cols"); }
-            set { SetOption("cols", value); }
-        }
-
-        public object Rows
-        {
-            get { return GetOption<object>("rows"); }
-            set { SetOption("rows", value); }
-        }
     }
 }
 

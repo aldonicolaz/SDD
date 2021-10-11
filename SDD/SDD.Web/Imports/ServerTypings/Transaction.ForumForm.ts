@@ -1,7 +1,7 @@
 ﻿namespace SDD.Transaction {
     export interface ForumForm {
         IdMasterForum: Serenity.LookupEditor;
-        DetailForum: MyCustomEditor;
+        DetailForum: Serenity.TextAreaEditor;
         FotoDokumenForum: Serenity.MultipleImageUploadEditor;
         HiddenUser: Serenity.RadioButtonEditor;
         Detail: DetailForumGrid;
@@ -19,7 +19,7 @@
 
                 var s = Serenity;
                 var w0 = s.LookupEditor;
-                var w1 = MyCustomEditor;
+                var w1 = s.TextAreaEditor;
                 var w2 = s.MultipleImageUploadEditor;
                 var w3 = s.RadioButtonEditor;
                 var w4 = DetailForumGrid;

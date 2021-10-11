@@ -28,6 +28,9 @@ namespace SDD.Transaction {
                 $(".add-button").show();
             }
         }
+        protected getAddButtonCaption() {
+            return "Isi Tanggapan";
+        }
 
 
     }

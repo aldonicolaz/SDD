@@ -13,6 +13,10 @@ namespace SDD.Transaction {
         constructor(container: JQuery) {
             super(container);
             $(".add-button").remove();
+
+
+
         }
+
     }
 }

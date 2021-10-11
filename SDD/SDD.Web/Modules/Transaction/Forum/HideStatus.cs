@@ -4,8 +4,8 @@ using System.ComponentModel;
 
 namespace SDD.Transaction
 {
-    [EnumKey("Transaction.MyEnumStatus")]
-    public enum MyEnumStatus
+    [EnumKey("Transaction.HideStatus")]
+    public enum Hide
     {
         Hidden = 1,
         Show = 0

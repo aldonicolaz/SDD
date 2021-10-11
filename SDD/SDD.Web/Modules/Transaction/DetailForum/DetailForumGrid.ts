@@ -28,5 +28,6 @@ namespace SDD.Transaction {
                 $(".add-button").show();
             }
         }
+
     }
 }

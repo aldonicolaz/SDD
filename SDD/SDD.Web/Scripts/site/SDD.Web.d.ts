@@ -60,6 +60,14 @@ declare namespace SDD.Administration {
     }
 }
 declare namespace SDD.Administration {
+    interface ListRequestForum extends Serenity.ServiceRequest {
+        IdMasterForum?: number;
+        DetailForum?: string;
+        FotoDokumenForum?: string;
+        HiddenUser?: Transaction.MyEnumStatus;
+    }
+}
+declare namespace SDD.Administration {
 }
 declare namespace SDD.Administration {
 }
@@ -3324,7 +3332,7 @@ declare namespace SDD.Transaction {
 declare namespace SDD.Transaction {
     interface ForumForm {
         IdMasterForum: Serenity.LookupEditor;
-        DetailForum: MyCustomEditor;
+        DetailForum: Serenity.TextAreaEditor;
         FotoDokumenForum: Serenity.MultipleImageUploadEditor;
         HiddenUser: Serenity.RadioButtonEditor;
         Detail: DetailForumGrid;
@@ -3602,12 +3610,18 @@ declare namespace SDD.Transaction {
     }
 }
 declare namespace SDD.Transaction {
+    enum Hide {
+        Show = 0,
+        Hidden = 1
+    }
+}
+declare namespace SDD.Transaction {
 }
 declare namespace SDD.Transaction {
     interface InfoDesaForm {
         TitleInfo: Serenity.StringEditor;
-        ShortDescInfo: MyCustomEditor;
-        BodyInfo: MyCustomEditor;
+        ShortDescInfo: Serenity.TextAreaEditor;
+        BodyInfo: Serenity.TextAreaEditor;
         Image: Serenity.ImageUploadEditor;
     }
     class InfoDesaForm extends Serenity.PrefixedContext {
@@ -3765,8 +3779,9 @@ declare namespace SDD.Transaction {
 declare namespace SDD.Transaction {
     interface ParentMessageForm {
         Title: Serenity.StringEditor;
-        Message: MyCustomEditor;
-        Body: MyCustomEditor;
+        Option1: Serenity.RadioButtonEditor;
+        Message: Serenity.StringEditor;
+        Body: Serenity.TextAreaEditor;
         Detail: FcmMessageGrid;
     }
     class ParentMessageForm extends Serenity.PrefixedContext {
@@ -3833,7 +3848,7 @@ declare namespace SDD.Transaction {
     interface PengaduanForm {
         IdPengaduan: Serenity.IntegerEditor;
         IdMasterTujuan: Serenity.LookupEditor;
-        PerihalPengaduan: MyCustomEditor;
+        PerihalPengaduan: Serenity.StringEditor;
         FotoDokumen: Serenity.MultipleImageUploadEditor;
         Timestamp: Serenity.DateEditor;
         DetailPengaduan: DetailPengaduanGrid;
@@ -3966,6 +3981,12 @@ declare namespace SDD.Transaction {
             Retrieve = "Transaction/Pengaduan/Retrieve",
             List = "Transaction/Pengaduan/List"
         }
+    }
+}
+declare namespace SDD.Transaction {
+    enum Send {
+        Individual = 0,
+        All = 1
     }
 }
 declare namespace SDD.Transaction {
@@ -5465,13 +5486,11 @@ declare namespace SDD.Administration {
         protected getButtons(): Serenity.ToolButton[];
         protected createToolbarExtensions(): void;
         private getSortedGroupAndPermissionKeys;
-        get value(): UserPermissionRow[];
-        set value(value: UserPermissionRow[]);
+        value: UserPermissionRow[];
         private _rolePermissions;
-        get rolePermissions(): string[];
-        set rolePermissions(value: string[]);
+        rolePermissions: string[];
         private _implicitPermissions;
-        set implicitPermissions(value: Q.Dictionary<string[]>);
+        implicitPermissions: Q.Dictionary<string[]>;
     }
     interface PermissionCheckEditorOptions {
         showRevoke?: boolean;
@@ -5527,12 +5546,9 @@ declare namespace SDD {
     class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
         constructor();
         cancelled: boolean;
-        get max(): number;
-        set max(value: number);
-        get value(): number;
-        set value(value: number);
-        get title(): string;
-        set title(value: string);
+        max: number;
+        value: number;
+        title: string;
         cancelTitle: string;
         getDialogOptions(): JQueryUI.DialogOptions;
         initDialog(): void;
@@ -5619,8 +5635,7 @@ declare namespace SDD.Common {
         protected editItem(entityOrId: any): void;
         getEditValue(property: any, target: any): void;
         setEditValue(source: any, property: any): void;
-        get value(): TEntity[];
-        set value(value: TEntity[]);
+        value: TEntity[];
         protected getGridCanLoad(): boolean;
         protected usePager(): boolean;
         protected getInitialTitle(): any;
@@ -6189,6 +6204,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6214,6 +6230,7 @@ declare namespace SDD.Transaction {
         protected getService(): string;
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6238,6 +6255,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6285,6 +6303,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6334,6 +6353,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6371,6 +6391,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6395,6 +6416,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6419,6 +6441,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6443,6 +6466,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6482,6 +6506,7 @@ declare namespace SDD.Transaction {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: FcmMessageUserForm;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace SDD.Transaction {
@@ -6583,6 +6608,7 @@ declare namespace SDD.Transaction {
         protected getService(): string;
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6669,6 +6695,7 @@ declare namespace SDD.Transaction {
         protected getService(): string;
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6696,12 +6723,14 @@ declare namespace SDD.Transaction {
     }
 }
 declare namespace SDD.Transaction {
-    class MyCustomEditor extends Serenity.HtmlContentEditor {
-        constructor(textArea: JQuery, opt?: Serenity.HtmlContentEditorOptions);
-        protected getConfig(): Serenity.CKEditorConfig;
-        get_value(): string;
+    class HardcodedValuesEditor extends Serenity.Select2Editor<Int16Array, any> {
+        constructor(container: JQuery);
     }
-    function trimNewlineEnd(text: string): string;
+}
+declare namespace SDD.Transaction {
+    class MyCustomEditor extends Serenity.Select2Editor<any, any> {
+        constructor(container: JQuery);
+    }
 }
 declare namespace SDD.Transaction {
     class ParentMessageDialog extends Serenity.EntityDialog<ParentMessageRow, any> {
@@ -6714,7 +6743,8 @@ declare namespace SDD.Transaction {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: ParentMessageForm;
-        constructor();
+        constructor(container: JQuery);
+        protected beforeLoadEntity(entity: any): void;
     }
 }
 declare namespace SDD.Transaction {
@@ -6726,6 +6756,7 @@ declare namespace SDD.Transaction {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6752,6 +6783,7 @@ declare namespace SDD.Transaction {
         protected getService(): string;
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6779,6 +6811,7 @@ declare namespace SDD.Transaction {
         protected getService(): string;
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
+        protected getAddButtonCaption(): string;
     }
 }
 declare namespace SDD.Transaction {
@@ -6828,6 +6861,7 @@ declare namespace SDD.Transaction {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: UserNelayanForm;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace SDD.Transaction {
@@ -6864,6 +6898,7 @@ declare namespace SDD.Transaction {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: UserPerdaganganForm;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace SDD.Transaction {
@@ -6887,6 +6922,7 @@ declare namespace SDD.Transaction {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: UserPerikananPeternakanForm;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace SDD.Transaction {
@@ -6910,6 +6946,7 @@ declare namespace SDD.Transaction {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: UserPertanianPerkebunanForm;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace SDD.Transaction {

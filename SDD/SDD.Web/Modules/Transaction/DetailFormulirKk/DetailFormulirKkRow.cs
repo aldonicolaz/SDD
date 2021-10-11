@@ -15,6 +15,7 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:DetailFormulirKk")]
     public sealed class DetailFormulirKkRow : Row, IIdRow, INameRow
     {
+        [SortOrder(1, descending: true)]
         [DisplayName("Id Detail KK"), Column("IdDetailKK"), Identity]
         public Int32? IdDetailKk
         {

@@ -28,7 +28,7 @@ namespace SDD.Transaction.Forms
         public String FotoDokumenForum { get; set; }
         [RadioButtonEditor(EnumKey = "Transaction.MyEnumStatushide")]
 
-        public MyEnumStatushide HiddenUser { get; set; }
+        public Hide HiddenUser { get; set; }
 
         [Category("Respon Forum")]
         [DetailForumGrid]

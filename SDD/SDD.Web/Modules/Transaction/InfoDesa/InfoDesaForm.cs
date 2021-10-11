@@ -16,10 +16,11 @@ namespace SDD.Transaction.Forms
        // public Int32 IdUser { get; set; }
        
         public String TitleInfo { get; set; }
-        [MyCustomEditor]
+        [TextAreaEditor (Rows = 5,Cols =4)]
         public String ShortDescInfo { get; set; }
-        [MyCustomEditor]
+        [TextAreaEditor(Rows = 6, Cols = 6)]
         public String BodyInfo { get; set; }
+        
         public String Image { get; set; }
 
 

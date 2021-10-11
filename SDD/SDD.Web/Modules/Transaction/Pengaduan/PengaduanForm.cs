@@ -20,9 +20,9 @@ namespace SDD.Transaction.Forms
         [LookupEditor("Master.MasterTujuanPengaduan"), DisplayName("Lembaga Pengaduan")]
         public Int32 IdMasterTujuan { get; set; }
       
-        [MyCustomEditor, DisplayName("Perihal Pengaduan")]
+        [DisplayName("Perihal Pengaduan")]
         public String PerihalPengaduan { get; set; }
-        [DisplayName("Foto / Dokumen")]
+        [DisplayName("Foto / Dokumen"),Visible(false)]
         public String FotoDokumen { get; set; }
         public DateTime Timestamp { get; set; }
         [Category("Detail Pengaduan")]

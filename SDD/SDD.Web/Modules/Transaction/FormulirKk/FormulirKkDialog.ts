@@ -17,7 +17,18 @@ namespace SDD.Transaction {
             super.afterLoadEntity();
 
             this.toolbar.findButton(".delete-button").remove();
-            
+
+            var categoryAnchor = this.form.DetailFormulir.element.closest('.category').find('.category-anchor');
+            categoryAnchor.text("Data Pemohon");
+
+ 
+
+            let categoryAnchor2 = this.element.find(".category-title:contains('Detail Formulir')").find('.category-anchor');
+
+            let categoryAnchorName = categoryAnchor2.attr('name');
+         
+            categoryAnchor2.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName}']`).hide();
+
 
         }
     }

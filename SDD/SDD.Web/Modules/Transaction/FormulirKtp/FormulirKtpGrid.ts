@@ -25,5 +25,8 @@ namespace SDD.Transaction {
 
             return columns;
         }
+        protected getAddButtonCaption() {
+            return "Buat Formulir KTP";
+        }
     }
 }

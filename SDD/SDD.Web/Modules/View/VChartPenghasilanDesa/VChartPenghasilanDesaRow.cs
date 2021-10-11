@@ -44,7 +44,7 @@ namespace SDD.View.Entities
             set { Fields.IdDesa[this] = value; }
         }
 
-        [DisplayName("Namadesa"), Column("namadesa"), Size(255), QuickSearch]
+        [DisplayName("Desa"), Column("namadesa"), Size(255), QuickSearch]
         public String Namadesa
         {
             get { return Fields.Namadesa[this]; }

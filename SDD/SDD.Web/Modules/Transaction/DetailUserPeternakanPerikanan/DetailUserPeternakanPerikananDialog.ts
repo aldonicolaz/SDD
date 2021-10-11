@@ -15,4 +15,5 @@ namespace SDD.Transaction {
         protected form = new DetailUserPeternakanPerikananForm(this.idPrefix);
 
     }
+
 }

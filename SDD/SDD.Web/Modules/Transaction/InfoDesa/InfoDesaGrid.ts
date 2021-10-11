@@ -20,5 +20,8 @@ namespace SDD.Transaction {
                 ctx => `<a href="../sidedi/upload/${Q.htmlEncode(ctx.value)}" target="_blank"><i class="fa fa fa-file-excel-o text-red"></i> Lihat</a>`;
             return columns;
         }
+        protected getAddButtonCaption() {
+            return "Tambah Info Desa";
+        }
     }
   }

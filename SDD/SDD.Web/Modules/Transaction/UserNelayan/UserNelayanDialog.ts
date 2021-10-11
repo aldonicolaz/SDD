@@ -13,6 +13,16 @@ namespace SDD.Transaction {
         protected getUpdatePermission() { return UserNelayanRow.updatePermission; }
 
         protected form = new UserNelayanForm(this.idPrefix);
+        protected afterLoadEntity() {
+            super.afterLoadEntity();
+
+            let categoryAnchor2 = this.element.find(".category-title:contains('Detail Nelayan')").find('.category-anchor');
+
+            let categoryAnchorName = categoryAnchor2.attr('name');
+
+            categoryAnchor2.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName}']`).hide();
+
+        }
 
     }
 }

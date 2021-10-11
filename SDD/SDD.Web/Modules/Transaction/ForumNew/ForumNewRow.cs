@@ -15,6 +15,7 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:ForumNew")]
     public sealed class ForumNewRow : Row, IIdRow, INameRow
     {
+        [SortOrder(1, descending: true)]
         [DisplayName("Id Forum"), Identity]
         public Int32? IdForum
         {

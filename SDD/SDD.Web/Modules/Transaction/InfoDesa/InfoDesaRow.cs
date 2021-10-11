@@ -15,6 +15,7 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:InfoDesa")]
     public sealed class InfoDesaRow : Row, IIdRow, INameRow
     {
+        [SortOrder(1, descending: true)]
         [DisplayName("Id Info Desa"), Identity]
         public Int32? IdInfoDesa
         {
@@ -30,7 +31,7 @@ namespace SDD.Transaction.Entities
         }
 
 
-        [DisplayName("Image"), Size(255)]
+        [DisplayName("Gambar"), Size(255)]
         [ImageUploadEditor(FilenameFormat = "Image/~", CopyToHistory = true, DisableDefaultBehavior = true)]
         public String Image
         {
@@ -38,35 +39,35 @@ namespace SDD.Transaction.Entities
             set { Fields.Image[this] = value; }
         }
 
-        [DisplayName("Body Info"), Size(900)]
+        [DisplayName("Informasi"), Size(900)]
         public String BodyInfo
         {
             get { return Fields.BodyInfo[this]; }
             set { Fields.BodyInfo[this] = value; }
         }
 
-        [DisplayName("Title Info"), Size(255)]
+        [DisplayName("Judul"), Size(255)]
         public String TitleInfo
         {
             get { return Fields.TitleInfo[this]; }
             set { Fields.TitleInfo[this] = value; }
         }
 
-        [DisplayName("Short Deskripsi Info"), Size(255)]
+        [DisplayName(" Deskripsi "), Size(255)]
         public String ShortDescInfo
         {
             get { return Fields.ShortDescInfo[this]; }
             set { Fields.ShortDescInfo[this] = value; }
         }
 
-        [DisplayName("Timestamp"), DisplayFormat("dd-MM-yyyy HH:mm:ss"), Width(200)]
+        [DisplayName("Tanggal&Waktu"), DisplayFormat("dd-MM-yyyy HH:mm:ss"), Width(200)]
         public DateTime? Timestamp
         {
             get { return Fields.Timestamp[this]; }
             set { Fields.Timestamp[this] = value; }
         }
 
-        [DisplayName("User Insert"), Expression("jIdUser.[DisplayName]")]
+        [DisplayName("Nama Author"), Expression("jIdUser.[DisplayName]")]
         public String DisplayName
         {
             get { return Fields.DisplayName[this]; }

@@ -25,7 +25,7 @@ namespace SDD.Transaction.Columns
         [Width(300)]
         public String FotoDokumenForum { get; set; }
         [Width(300)]
-        public MyEnumStatushide HiddenUser { get; set; }
+        public Hide HiddenUser { get; set; }
         [Width(200)]
         public DateTime Timestamp { get; set; }
     }

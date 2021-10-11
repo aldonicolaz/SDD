@@ -13,41 +13,41 @@ namespace SDD.View.Columns
     [BasedOnRow(typeof(Entities.ViewUserPenghasilanRow), CheckNames = true)]
     public class ViewUserPenghasilanColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignCenter]
         public Int64 NumberId { get; set; }
         [EditLink]
-        [Width(300)]
+        [Width(150)]
         public String DisplayName { get; set; }
-        [Width(300)]
+        [Width(150)]
         public String Email { get; set; }
         //public String NoKtp { get; set; }
         //public String NoKk { get; set; }
         //public String PhoneNumber { get; set; }
-        [Width(300)]
+        [Width(100)]
         public String WaNumber { get; set; }
-        [Width(300)]
+        [Width(150)]
         public Decimal TotalHasil { get; set; }
         [Visible(false)]
 
         [LookupEditor("Master.MasterPekerjaan"),QuickFilter]
         public Int32 IdPekerjaan { get; set; }
-        [Width(300)]
+        [Width(120)]
         public String NamaPekerjaan { get; set; }
         [LookupEditor("Master.MasterDesa"), Visible(false),QuickFilter]
         public Int64 IdDesa { get; set; }
-        [Width(300)]
+        [Width(120)]
         public String NamaDesa { get; set; }
         [LookupEditor("Master.MasterKecamatan"), Visible(false), QuickFilter]
         public Int32 IdKecamatan { get; set; }
-        [Width(300)]
+        [Width(120)]
         public String NamaKecamatan { get; set; }
         [LookupEditor("Master.MasterKabupaten"), Visible(false), QuickFilter]
         public Int32 IdKabupaten { get; set; }
-        [Width(300)]
+        [Width(120)]
         public String NamaKabupaten { get; set; }
         [LookupEditor("Master.MasterPropinsi"), Visible(false), QuickFilter]
         public Int32 IdPropinsi { get; set; }
-        [Width(300)]
+        [Width(100)]
         public String NamaPropinsi { get; set; }
     }
 }

@@ -1,0 +1,556 @@
+VIRTUAL ACOUNT
+
+note ==> bankcode =   BNI("BNI"),
+  BNI_SYARIAH("BNI_SYARIAH"),
+  MANDIRI("MANDIRI"),
+  BRI("BRI"),
+  BCA("BCA"),
+  PERMATA("PERMATA"),
+  SINARMAS("SINARMAS"),
+  SAHABAT_SAMPOERNA("SAHABAT_SAMPOERNA");
+
+VA Create
+http://192.168.102.114/AspanXendit2/resources/VA/create
+Methode: Post
+Request:
+{
+ "nama":"ABID",
+ "bankcode":"MANDIRI",
+ "externalid": "VA_fixed-20210917"
+  
+}
+
+Get VA
+http://192.168.102.114/AspanXendit2/resources/VA/getVA
+Methode: Post
+Request :
+{
+    "virtualAccountId":"6152a20d4512e9e02e48f29c"
+}
+
+
+VA Close
+http://192.168.102.114/AspanXendit2/resources/VA/createCloseVA
+Methode: Post
+Request:
+{
+ "nama":"ABID",
+ "bankcode":"MANDIRI",
+ "externalid": "VA_fixed-20210917",
+ "amounts":50000
+  
+}
+
+
+
+VA Update (Belum bisa)
+http://192.168.102.114/AspanXendit2/resources/VA/updateVA
+Methode: Post
+Request :
+{
+    "virtualAccountId":"6152a20d4512e9e02e48f29c"
+}
+
+Get VA Payment
+http://192.168.102.114/AspanXendit2/resources/VA/getVAPayment
+Methode: Post
+Request :
+{
+    "vaPaymentId":"6152a20d4512e9e02e48f29c"
+}
+
+
+
+
+
+QRCODE 
+
+note==> tipe = DYNAMIC , STATIC
+
+QR Create
+http://192.168.102.114/AspanXendit2/resources/QR/createQr
+Methode: Post
+Request :
+{
+    "externalid":"VA_fixed-20210917",
+    "tipe":"DYNAMIC",
+    "callbackurl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi",
+    "amount":50000
+}
+
+
+GET QRCODE
+http://192.168.102.114/AspanXendit2/resources/QR/getQr
+Methode: Post
+Request :
+{
+    "externalid":"VA_fixed-20210917"
+}
+
+
+INVOICE
+
+CREATE INVOICE
+http://192.168.102.114/AspanXendit2/resources/Invoice/createInvoice
+Methode: Post
+Request :
+{
+   "externalid":"VA_fixed-20210917",
+   "amount":50000,
+   "payeremail":"kusnur9@gmail.com",
+   "deskripsi":"tes invoice"
+}
+
+GET INVOICE
+http://192.168.102.114/AspanXendit2/resources/Invoice/getInvoice
+Methode: Post
+Request :
+{
+    "idinvoice":"6152c64bb24cb823447578a9"
+}
+
+GET EXPIRED INVOICE
+http://192.168.102.114/AspanXendit2/resources/Invoice/getInvoiceExpire
+Methode: Post
+Request :
+{
+    "idinvoice":"6152c64bb24cb823447578a9"
+}
+
+GET ALL INVOICE (Belum bisa)
+http://192.168.102.114/AspanXendit2/resources/Invoice/getInvoiceAll
+Methode: Post
+Request :
+{
+    "limit":3,
+    "idinvoice": "6152c64bb24cb823447578a9"
+}
+
+
+EWALLET
+
+EWALLET CREATE OVO (Belum bisa)
+http://192.168.102.114/AspanXendit2/resources/Ewallet/createOvo
+Methode: Post
+Request :
+{
+    "externalid":"OVO-EWALLET",
+    "amounts":50000,
+    "phones":"085810450099"
+}
+
+
+EWALLET CREATE DANA
+http://192.168.102.114/AspanXendit2/resources/Ewallet/createDana
+Methode: Post
+Request :
+{
+    "externalid":"DANA-EWALLET",
+    "amounts":50000,
+    "phones":"085810450099",
+    "callbackurl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi",
+    "redirecurl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi",
+    "expiretdates":"2021-09-28T17:10:00.000Z"
+}
+
+EWALLET CREATE LINKAJA (Belum bisa)
+http://192.168.102.114/AspanXendit2/resources/Ewallet/createLinkAja
+Methode: Post
+Request :
+{
+    "externalid":"LINKAJA-EWALLET3",
+    "amounts":50000,
+    "phones":"085810450099",
+    "callbackurl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi",
+    "redirecurl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi",
+    "LinkajaItem":[{"id":"1","name":"buku","price":5000,"quantity":2}]
+}
+
+GET EWALLET PAYMENT
+http://192.168.102.114/AspanXendit2/resources/Ewallet/getEwalletPayment
+Methode: Post
+Request :
+{
+    "externalId":"DANA-EWALLET4",
+    "ewalletType":"DANA"
+}
+
+NOTE ==> ewalletType=DANA,OVO,LINKAJA
+
+
+DISBURSEMENT
+
+note ==> bankcode =   BNI("BNI"),
+  BNI_SYARIAH("BNI_SYARIAH"),
+  MANDIRI("MANDIRI"),
+  BRI("BRI"),
+  BCA("BCA"),
+  PERMATA("PERMATA"),
+  SINARMAS("SINARMAS"),
+  SAHABAT_SAMPOERNA("SAHABAT_SAMPOERNA");
+
+CREATE BATCH DISBURSEMENT
+http://192.168.102.114/AspanXendit2/resources/Disbursement/createBatchDisbursement
+Methode: Post
+Request :
+{
+    "amount":5000,
+    "accountname":"ABID",
+    "bankcode":"MANDIRI",
+    "accounnumber":"124123456",
+    "descripsion":"Testing batch"
+}
+
+
+CREATE DISBURSEMENT
+http://192.168.102.114/AspanXendit2/resources/Disbursement/createDisbursement
+Methode: Post
+Request :
+{
+    "externalid":"DIS_1234",
+    "amount":5000,
+    "accountname":"ALDO",
+    "bankcode":"MANDIRI",
+    "accounnumber":"124123456",
+    "descripsion":"Testing"
+}
+
+
+
+PAYMENT
+
+note==> tipe =   DEBIT_CARD,BANK_ACCOUNT
+
+CREATE RECURRING PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/createRecurringPayment
+Methode: Post
+Request :
+{
+
+    "externalid":"recurring_31451441",
+    "payeremail":"kusnur9@gmail.com",
+    "intervalmonth":"MONTH",
+    "intervalcount":1,
+    "description":"TES",
+    "amount":5000,
+    "currency":"IDR"
+}
+
+EDIT RECURRING PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/updateRecurringPayment
+Methode: Post
+Request :
+{
+
+  "paymentid":"6153ed75def31ceb88bdcb3a",
+     "amount":5000,
+     "interval":"MONTH"
+}
+
+
+PAUSE RECURRING PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/pauseRecurringPayment
+Methode: Post
+Request :
+{
+
+  "paymentid":"6153ed75def31ceb88bdcb3a"
+}
+
+RESUME RECURRING PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/resumeRecurringPayment
+Methode: Post
+Request :
+{
+
+  "paymentid":"6153ed75def31ceb88bdcb3a"
+}
+
+LIST RECURRING PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/listRecurringPayment
+Methode: Post
+Request :
+{
+
+  "paymentid":"6153ed75def31ceb88bdcb3a"
+}
+
+STOP RECURRING PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/stopRecurringPayment
+Methode: Post
+Request :
+{
+
+  "paymentid":"6153ed75def31ceb88bdcb3a"
+}
+
+
+LINKED ACCOUNT 
+
+note==> outlet = ALFAMART,INDOMARET
+
+        chanelcode=  DC_BRI, BA_BPI, BA_UBP
+
+CREATE INITIALIZATION TOKEN LINKED ACCOUNT
+http://localhost:8080/AspanXendit2/resources/LinkedAcount/initializeLinkedAccountTokenization
+Methode: Post
+Request :
+{
+    "customerid":"fafe76f3-01f6-4bf3-af76-7e3027c510c3",
+    "phonenumber":"+62818555988",
+    "cardlastfour":"8888",
+    "cardexpiri":"06/24",
+    "emailacount":"kusnu@gmail.com",
+    "channelCode":"DC_BRI"
+}
+
+CREATE INITIALIZATION TOKEN LINKED ACCOUNT WITH CALLBACK URL
+http://localhost:8080/AspanXendit2/resources/LinkedAcount/initializeLinkedAccountTokenizationWithUrl
+Methode: Post
+Request :
+{
+    "customerid":"fafe76f3-01f6-4bf3-af76-7e3027c510c3",
+    "chanelcode":"DC_BRI",
+    "suksesredirecturl":"http://asri.aspan.co.id/sidedi",
+    "failureredirecturl":"http://asri.aspan.co.id/sidedi",
+    "callbackurl":"http://asri.aspan.co.id/sidedi"
+}
+
+VALIDATION OTP CODE LINKED ACCOUNT
+http://localhost:8080/AspanXendit2/resources/LinkedAcount/validateOTPLinkedAccount
+Methode: Post
+Request :
+{
+    "tokenid":"lat-92ddc19c-885c-4af1-a0b6-171910c967e1",
+    "otpCodes":"333000"
+}
+
+DELETE LINKED ACCOUNT
+http://localhost:8080/AspanXendit2/resources/LinkedAcount/unBindLinkedaccount
+Methode: Post
+Request :
+{
+    "linkedaccountid":"lat-92ddc19c-885c-4af1-a0b6-171910c967e1"
+}
+
+
+PAYMENT METHODE
+CREATE PAYMENT METHODE
+http://localhost:8080/AspanXendit2/resources/Payment/createPaymentMethod
+Methode: Post
+Request :
+{
+    "id":"lat-92ddc19c-885c-4af1-a0b6-171910c967e1",
+    "customerid":"69944538-bbee-451b-9c57-240500fc1041",
+    "tipe":"DEBIT_CARD"
+}
+
+GET PAYMENT METHODE BY CUSTOMER
+http://localhost:8080/AspanXendit2/resources/Payment/getPaymentMethodByCustomerid
+Methode: Post
+Request :
+{
+    
+    "customerid":"cdf226a9-e39d-4e0a-87aa-342c5047d94d"
+}
+
+
+FIXED PAYMENT CODE
+
+note==> outlet = ALFAMART,INDOMARET
+
+        chanelcode=  DC_BRI, BA_BPI, BA_UBP
+
+CREATE FIXED PAYMENT CODE
+http://localhost:8080/AspanXendit2/resources/Payment/createFixedPaymentCode
+Methode: Post
+Request :
+{
+    "externalid":"FIXED-123456",
+    "outlet":"ALFAMART",
+    "nama":"ALDO",
+    "amount":15000
+}
+
+EDIT FIXED PAYMENT CODE
+http://localhost:8080/AspanXendit2/resources/Payment/updateFixedPaymentCode
+Methode: Post
+Request :
+{
+    "id":"6153f6f7f7759b9a240001fb",
+    "nama":"ALDO",
+    "amount":15500
+}
+
+
+DIRECT DEBIT PAYMENT
+
+CREATE DEBIT PAYMENT
+http://localhost:8080/AspanXendit2/resources/Payment/createDirectDebitPayment
+Methode: Post
+Request :
+{
+    "referenceid":"DEBIT-1234",
+    "paymentmethodeid":"pm-ebb1c863-c7b5-4f20-b116-b3071b1d3aef",
+    "curency":"IDR",
+    "amounts":15000,
+    "calbackurl":"http://webhook.site/",
+    "descriptions":"TEST",
+    "suksesredirekurl":"http://webhook.site/",
+    "failureredirekurl":"http://webhook.site/",
+    "idempotencyKeys":"idempotency-key-3",
+    "iddevice":"12334444",
+    "ipaddres":"192.168.0.8",
+    "useragent":"id27272",
+    "adid":"12212222",
+    "imei":"1233333",
+    "basketItemArray":[{"referenceId":"id1","name":"buah","market":"ID","type":"buah","description":"tes","category":"buah","subCategory":"buah","price":15000,"url":"http://webhook.site/"}]
+}
+
+VALIDATION OTP DEBIT
+http://localhost:8080/AspanXendit2/resources/Payment/validateOTPDebit
+Methode: Post
+Request :
+{
+    "otpkode":"222000",
+    "debitpaymentId":"ddpy-7e61b0a7-92f9-4762-a994-c2936306f44c"
+}
+
+GET DIRECT DEBIT PAYMENT BY REFERENCE ID
+http://localhost:8080/AspanXendit2/resources/Payment/getDirectDebitPaymentByreferenceid
+Methode: Post
+Request :
+{
+    "referenceid":"DEBIT-1234"
+}
+
+GET DIRECT DEBIT PAYMENT BY ID
+http://localhost:8080/AspanXendit2/resources/Payment/getDirectDebitPaymentByid
+Methode: Post
+Request :
+{
+    "directdebitId":"ddpy-7e61b0a7-92f9-4762-a994-c2936306f44c"
+}
+
+GET BALANCE
+http://localhost:8080/AspanXendit2/resources/Payment/getBalance
+METHODE: POST
+
+
+CARD
+
+CREATE AUTHORIZATION CHARGE CARD
+http://localhost:8080/AspanXendit2/resources/Card/authorizationCard
+Methode: Post
+Request :
+{
+    "tokenid":"TOKEN1234",
+    "externalid":"card-1234",
+    "amount":15000,
+    "authid":"id1232121",
+    "cardCVN":"123"
+}
+
+CREATE CHARGE CARD
+http://localhost:8080/AspanXendit2/resources/Card/createChargeCard
+Methode: Post
+Request :
+{
+    "tokenid":"TOKEN1234",
+    "externalid":"card-1234",
+    "amount":15000,
+    "authid":"id1232121",
+    "cardCVN":"123",
+    "descriptor":"test"
+}
+
+CAPTURE CHARGE CARD
+http://localhost:8080/AspanXendit2/resources/Card/captureCard
+Methode: Post
+Request :
+{
+    "chargeid":"12345678",
+    "amount":15000
+}
+
+GET CHARGE CARD
+http://localhost:8080/AspanXendit2/resources/Card/getChargeCard
+Methode: Post
+Request :
+{
+    "chargeid":"12345678"
+}
+
+
+CREATE REFUND CARD
+http://localhost:8080/AspanXendit2/resources/Card/createRefundCard
+Methode: Post
+Request :
+{
+    "chargeid":"12345678",
+    "amount":15000,
+	 "externalid":"card-1234"
+}
+
+REVERSE AUTH CARD
+http://localhost:8080/AspanXendit2/resources/Card/reverseAuthCard
+Methode: Post
+Request :
+{
+    "chargeid":"12345678",
+	 "externalid":"card-1234"
+}
+
+CREATE CARDLESS CREDIT
+note ==> paymentType = THIRTY_DAYS("30_days"),THREE_MONTHS("3_months"),SIX_MONTHS("6_months"),TWELVE_MONTHS("12_months");
+
+http://localhost:8080/AspanXendit2/resources/Card/createCardlessCredit
+Methode: Post
+Request :
+{
+
+    "cardlessCreditType":"KREDIVO",
+    "externalId":"CREDIT-21111",
+    "amount":15000,
+    "paymentType":"THREE_MONTHS",
+    "items":[{"id":"123","name":"buku","price":15000,"type":"buku","quantity":2,"url":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi"}],
+    "customerDetails":{"firstName":"ado","lastName":"pardede","email":"ado@gmail.com","phone":"085810457789"},
+    "shippingAddress":[{"firstName":"ado","lastName":"pardede","address":"jl.raya","city":"Jakarta Selatan","postalCode":"1234","phone":"085810457789","countryCode":"62"}],
+    "redirectUrl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi",
+    "callbackUrl":"http://asri.aspan.co.id/SiDeDi/Account/Login?ReturnUrl=%2fsidedi"
+}
+
+
+
+PAYOUT
+
+CREATE PAYOUT
+http://localhost:8080/AspanXendit2/resources/PayOut/createPayout
+Methode: Post
+Request :
+{
+    "externalid":"PY-123444",
+    "amount":15000
+}
+
+
+GET PAYOUT
+http://localhost:8080/AspanXendit2/resources/PayOut/getPayout
+Methode: Post
+Request :
+{
+    "idpayout":"190feb8f-a4f4-4db2-b93a-851c90a73a74"
+    
+}
+
+VOID PAYOUT
+
+http://localhost:8080/AspanXendit2/resources/PayOut/voidPayout
+Methode: Post
+Request :
+{
+    "idpayout":"190feb8f-a4f4-4db2-b93a-851c90a73a74"
+    
+}
+
+

@@ -57,7 +57,7 @@ namespace SDD.Transaction.Entities
             set { Fields.FotoDokumenForum[this] = value; }
         }
 
-        [DisplayName("Hidden User")]
+        [DisplayName("Hidden/Show")]
         public Int32? HiddenUser
         {
             get { return Fields.HiddenUser[this]; }
@@ -92,7 +92,7 @@ namespace SDD.Transaction.Entities
             set { Fields.IdUserInsertUsername[this] = value; }
         }
 
-        [DisplayName("User Insert"), Expression("jIdUserInsert.[DisplayName]")]
+        [DisplayName("Nama Author"), Expression("jIdUserInsert.[DisplayName]")]
         public String IdUserInsertDisplayName
         {
             get { return Fields.IdUserInsertDisplayName[this]; }

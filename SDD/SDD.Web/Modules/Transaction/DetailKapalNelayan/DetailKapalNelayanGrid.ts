@@ -13,5 +13,8 @@ namespace SDD.Transaction {
         constructor(container: JQuery) {
             super(container);
         }
+        protected getAddButtonCaption() {
+            return "Tambah Info Kapal";
+        }
     }
 }

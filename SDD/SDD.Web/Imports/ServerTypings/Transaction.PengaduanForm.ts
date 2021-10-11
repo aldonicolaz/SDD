@@ -2,7 +2,7 @@
     export interface PengaduanForm {
         IdPengaduan: Serenity.IntegerEditor;
         IdMasterTujuan: Serenity.LookupEditor;
-        PerihalPengaduan: MyCustomEditor;
+        PerihalPengaduan: Serenity.StringEditor;
         FotoDokumen: Serenity.MultipleImageUploadEditor;
         Timestamp: Serenity.DateEditor;
         DetailPengaduan: DetailPengaduanGrid;
@@ -21,7 +21,7 @@
                 var s = Serenity;
                 var w0 = s.IntegerEditor;
                 var w1 = s.LookupEditor;
-                var w2 = MyCustomEditor;
+                var w2 = s.StringEditor;
                 var w3 = s.MultipleImageUploadEditor;
                 var w4 = s.DateEditor;
                 var w5 = DetailPengaduanGrid;

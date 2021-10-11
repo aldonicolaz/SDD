@@ -13,5 +13,16 @@ namespace SDD.Transaction {
 
         protected form = new UserPerikananPeternakanForm(this.idPrefix);
 
+    
+        protected afterLoadEntity() {
+            super.afterLoadEntity();
+    
+            let categoryAnchor2 = this.element.find(".category-title:contains('Detail Formulir')").find('.category-anchor');
+
+    let categoryAnchorName = categoryAnchor2.attr('name');
+
+    categoryAnchor2.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName}']`).hide();
+
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace SDD.Transaction.Columns
     [BasedOnRow(typeof(Entities.FcmMessageRow), CheckNames = true)]
     public class FcmMessageColumns
     {
-       [EditLink, DisplayName("ID"), AlignRight]
+       [EditLink, DisplayName("ID"), AlignCenter]
         public Int32 IdMessage { get; set; }
 
         [DisplayName("User")]

@@ -15,8 +15,15 @@ namespace SDD.Transaction {
         protected form = new ForumForm(this.idPrefix);
         protected afterLoadEntity() {
             super.afterLoadEntity();
+       
+            let categoryAnchor = this.element.find(".category-title:contains('Forum')").find('.category-anchor');
+            let categoryAnchor2 = this.element.find(".category-title:contains('Respon Forum')").find('.category-anchor');
+            let categoryAnchorName = categoryAnchor.attr('name');
+            let categoryAnchorName2 = categoryAnchor2.attr('name');
+            categoryAnchor.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName}']`).hide();
+            categoryAnchor2.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName2}']`).hide();
 
-
+           
 
             var DialogNew = this.isNew();
             if (!DialogNew) {
@@ -67,6 +74,19 @@ namespace SDD.Transaction {
                     this.form.Detail.element.closest('.category').toggle(true);
                 }
             }
+
         }
+
+ 
+
+
+   
+
+
+        
+    
+
+    
+
     }
 }

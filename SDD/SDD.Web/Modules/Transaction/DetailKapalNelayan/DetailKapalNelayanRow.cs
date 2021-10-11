@@ -15,6 +15,7 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:DetailKapalNelayan")]
     public sealed class DetailKapalNelayanRow : Row, IIdRow, INameRow
     {
+        [SortOrder(1, descending: true)]
         [DisplayName("Id Kapal Nelayan"), Identity]
         public Int32? IdKapalNelayan
         {
@@ -36,21 +37,21 @@ namespace SDD.Transaction.Entities
             set { Fields.StatusKapal[this] = value; }
         }
 
-        [DisplayName("Type Kapal"), Size(255), QuickSearch]
+        [DisplayName("Tipe Kapal"), Size(255), QuickSearch]
         public String TypeKapal
         {
             get { return Fields.TypeKapal[this]; }
             set { Fields.TypeKapal[this] = value; }
         }
 
-        [DisplayName("Lokasi Sandar Kapal"), Size(255)]
+        [DisplayName("Lokasi Berlabuh"), Size(255)]
         public String LokasiSandarKapal
         {
             get { return Fields.LokasiSandarKapal[this]; }
             set { Fields.LokasiSandarKapal[this] = value; }
         }
 
-        [DisplayName("Hasil Bulanan"), Size(19), Scale(4)]
+        [DisplayName("Hasil Per-Bulan"), Size(19), Scale(4)]
         public Decimal? HasilBulanan
         {
             get { return Fields.HasilBulanan[this]; }

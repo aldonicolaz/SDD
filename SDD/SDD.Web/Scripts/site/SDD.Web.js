@@ -2692,7 +2692,7 @@ var SDD;
                     ForumForm.init = true;
                     var s = Serenity;
                     var w0 = s.LookupEditor;
-                    var w1 = Transaction.MyCustomEditor;
+                    var w1 = s.TextAreaEditor;
                     var w2 = s.MultipleImageUploadEditor;
                     var w3 = s.RadioButtonEditor;
                     var w4 = Transaction.DetailForumGrid;
@@ -2882,6 +2882,18 @@ var SDD;
 (function (SDD) {
     var Transaction;
     (function (Transaction) {
+        var Hide;
+        (function (Hide) {
+            Hide[Hide["Show"] = 0] = "Show";
+            Hide[Hide["Hidden"] = 1] = "Hidden";
+        })(Hide = Transaction.Hide || (Transaction.Hide = {}));
+        Serenity.Decorators.registerEnumType(Hide, 'SDD.Transaction.Hide', 'Transaction.HideStatus');
+    })(Transaction = SDD.Transaction || (SDD.Transaction = {}));
+})(SDD || (SDD = {}));
+var SDD;
+(function (SDD) {
+    var Transaction;
+    (function (Transaction) {
         var InfoDesaForm = /** @class */ (function (_super) {
             __extends(InfoDesaForm, _super);
             function InfoDesaForm(prefix) {
@@ -2890,7 +2902,7 @@ var SDD;
                     InfoDesaForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = Transaction.MyCustomEditor;
+                    var w1 = s.TextAreaEditor;
                     var w2 = s.ImageUploadEditor;
                     Q.initFormType(InfoDesaForm, [
                         'TitleInfo', w0,
@@ -3065,13 +3077,15 @@ var SDD;
                     ParentMessageForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = Transaction.MyCustomEditor;
-                    var w2 = Transaction.FcmMessageGrid;
+                    var w1 = s.RadioButtonEditor;
+                    var w2 = s.TextAreaEditor;
+                    var w3 = Transaction.FcmMessageGrid;
                     Q.initFormType(ParentMessageForm, [
                         'Title', w0,
-                        'Message', w1,
-                        'Body', w1,
-                        'Detail', w2
+                        'Option1', w1,
+                        'Message', w0,
+                        'Body', w2,
+                        'Detail', w3
                     ]);
                 }
                 return _this;
@@ -3132,7 +3146,7 @@ var SDD;
                     var s = Serenity;
                     var w0 = s.IntegerEditor;
                     var w1 = s.LookupEditor;
-                    var w2 = Transaction.MyCustomEditor;
+                    var w2 = s.StringEditor;
                     var w3 = s.MultipleImageUploadEditor;
                     var w4 = s.DateEditor;
                     var w5 = Transaction.DetailPengaduanGrid;
@@ -3193,6 +3207,18 @@ var SDD;
                 };
             });
         })(PengaduanService = Transaction.PengaduanService || (Transaction.PengaduanService = {}));
+    })(Transaction = SDD.Transaction || (SDD.Transaction = {}));
+})(SDD || (SDD = {}));
+var SDD;
+(function (SDD) {
+    var Transaction;
+    (function (Transaction) {
+        var Send;
+        (function (Send) {
+            Send[Send["Individual"] = 0] = "Individual";
+            Send[Send["All"] = 1] = "All";
+        })(Send = Transaction.Send || (Transaction.Send = {}));
+        Serenity.Decorators.registerEnumType(Send, 'SDD.Transaction.Send', 'Transaction.EnumSend');
     })(Transaction = SDD.Transaction || (SDD.Transaction = {}));
 })(SDD || (SDD = {}));
 var SDD;
@@ -7574,6 +7600,9 @@ var SDD;
             AparaturDesaGrid.prototype.getInsertPermission = function () { return Transaction.AparaturDesaRow.insertPermission; };
             AparaturDesaGrid.prototype.getLocalTextPrefix = function () { return Transaction.AparaturDesaRow.localTextPrefix; };
             AparaturDesaGrid.prototype.getService = function () { return Transaction.AparaturDesaService.baseUrl; };
+            AparaturDesaGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Aparatur Desa";
+            };
             AparaturDesaGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], AparaturDesaGrid);
@@ -7630,6 +7659,9 @@ var SDD;
                     function (ctx) { return "<span class=\"label bg-info text-white\">" + ("<a href=\"" + Q.htmlEncode(ctx.value) + "\" target=\"_blank\"><i class=\"fa fa fa-file-excel-o text-red\"></i> Lihat Image</a>") + "</span>"; };
                 return columns;
             };
+            BannerGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Banner";
+            };
             BannerGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], BannerGrid);
@@ -7680,6 +7712,9 @@ var SDD;
             DetailAktaLahirGrid.prototype.getInsertPermission = function () { return Transaction.DetailAktaLahirRow.insertPermission; };
             DetailAktaLahirGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailAktaLahirRow.localTextPrefix; };
             DetailAktaLahirGrid.prototype.getService = function () { return Transaction.DetailAktaLahirService.baseUrl; };
+            DetailAktaLahirGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Data Saksi";
+            };
             DetailAktaLahirGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailAktaLahirGrid);
@@ -7779,6 +7814,9 @@ var SDD;
             DetailFormulirKkGrid.prototype.getInsertPermission = function () { return Transaction.DetailFormulirKkRow.insertPermission; };
             DetailFormulirKkGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailFormulirKkRow.localTextPrefix; };
             DetailFormulirKkGrid.prototype.getService = function () { return Transaction.DetailFormulirKkService.baseUrl; };
+            DetailFormulirKkGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Data Pemohon";
+            };
             DetailFormulirKkGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailFormulirKkGrid);
@@ -7914,6 +7952,9 @@ var SDD;
             DetailKapalNelayanGrid.prototype.getInsertPermission = function () { return Transaction.DetailKapalNelayanRow.insertPermission; };
             DetailKapalNelayanGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailKapalNelayanRow.localTextPrefix; };
             DetailKapalNelayanGrid.prototype.getService = function () { return Transaction.DetailKapalNelayanService.baseUrl; };
+            DetailKapalNelayanGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Info Kapal";
+            };
             DetailKapalNelayanGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailKapalNelayanGrid);
@@ -8024,6 +8065,9 @@ var SDD;
             DetailPengaduanGrid.prototype.getInsertPermission = function () { return Transaction.DetailPengaduanRow.insertPermission; };
             DetailPengaduanGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailPengaduanRow.localTextPrefix; };
             DetailPengaduanGrid.prototype.getService = function () { return Transaction.DetailPengaduanService.baseUrl; };
+            DetailPengaduanGrid.prototype.getAddButtonCaption = function () {
+                return "Isi Tanggapan";
+            };
             DetailPengaduanGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailPengaduanGrid);
@@ -8074,6 +8118,9 @@ var SDD;
             DetailUserPerdaganganGrid.prototype.getInsertPermission = function () { return Transaction.DetailUserPerdaganganRow.insertPermission; };
             DetailUserPerdaganganGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailUserPerdaganganRow.localTextPrefix; };
             DetailUserPerdaganganGrid.prototype.getService = function () { return Transaction.DetailUserPerdaganganService.baseUrl; };
+            DetailUserPerdaganganGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Data Toko";
+            };
             DetailUserPerdaganganGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailUserPerdaganganGrid);
@@ -8124,6 +8171,9 @@ var SDD;
             DetailUserPertanianGrid.prototype.getInsertPermission = function () { return Transaction.DetailUserPertanianRow.insertPermission; };
             DetailUserPertanianGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailUserPertanianRow.localTextPrefix; };
             DetailUserPertanianGrid.prototype.getService = function () { return Transaction.DetailUserPertanianService.baseUrl; };
+            DetailUserPertanianGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Data Pendukung";
+            };
             DetailUserPertanianGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailUserPertanianGrid);
@@ -8174,6 +8224,9 @@ var SDD;
             DetailUserPeternakanPerikananGrid.prototype.getInsertPermission = function () { return Transaction.DetailUserPeternakanPerikananRow.insertPermission; };
             DetailUserPeternakanPerikananGrid.prototype.getLocalTextPrefix = function () { return Transaction.DetailUserPeternakanPerikananRow.localTextPrefix; };
             DetailUserPeternakanPerikananGrid.prototype.getService = function () { return Transaction.DetailUserPeternakanPerikananService.baseUrl; };
+            DetailUserPeternakanPerikananGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Data Pendukung";
+            };
             DetailUserPeternakanPerikananGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], DetailUserPeternakanPerikananGrid);
@@ -8256,6 +8309,14 @@ var SDD;
             FcmMessageUserDialog.prototype.getDeletePermission = function () { return Transaction.FcmMessageUserRow.deletePermission; };
             FcmMessageUserDialog.prototype.getInsertPermission = function () { return Transaction.FcmMessageUserRow.insertPermission; };
             FcmMessageUserDialog.prototype.getUpdatePermission = function () { return Transaction.FcmMessageUserRow.updatePermission; };
+            FcmMessageUserDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var DialogNew = this.isNew();
+                if (!DialogNew) {
+                    this.form.IdUser.value = SDD.Authorization.userDefinition.UserId;
+                    this.form.TimeStamp.valueAsDate;
+                }
+            };
             FcmMessageUserDialog = __decorate([
                 Serenity.Decorators.registerClass()
             ], FcmMessageUserDialog);
@@ -8309,6 +8370,11 @@ var SDD;
             FormulirAktaKelahiranDialog.prototype.afterLoadEntity = function () {
                 _super.prototype.afterLoadEntity.call(this);
                 this.toolbar.findButton(".delete-button").remove();
+                var categoryAnchor = this.form.DetailFormulir.element.closest('.category').find('.category-anchor');
+                categoryAnchor.text("Data Saksi");
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Formulir')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
             };
             FormulirAktaKelahiranDialog = __decorate([
                 Serenity.Decorators.panel(),
@@ -8404,6 +8470,11 @@ var SDD;
             FormulirKkDialog.prototype.afterLoadEntity = function () {
                 _super.prototype.afterLoadEntity.call(this);
                 this.toolbar.findButton(".delete-button").remove();
+                var categoryAnchor = this.form.DetailFormulir.element.closest('.category').find('.category-anchor');
+                categoryAnchor.text("Data Pemohon");
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Formulir')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
             };
             FormulirKkDialog = __decorate([
                 Serenity.Decorators.panel(),
@@ -8495,6 +8566,9 @@ var SDD;
                     function (ctx) { return "<span class=\"label bg-info text-white\">" + ("<a href=\"" + Q.htmlEncode(ctx.value) + "\" target=\"_blank\"><i class=\"fa fa fa-file-excel-o text-red\"></i> Download</a>") + "</span>"; };
                 return columns;
             };
+            FormulirKtpGrid.prototype.getAddButtonCaption = function () {
+                return "Buat Formulir KTP";
+            };
             FormulirKtpGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], FormulirKtpGrid);
@@ -8554,6 +8628,12 @@ var SDD;
             ForumDialog.prototype.getUpdatePermission = function () { return Transaction.ForumRow.updatePermission; };
             ForumDialog.prototype.afterLoadEntity = function () {
                 _super.prototype.afterLoadEntity.call(this);
+                var categoryAnchor = this.element.find(".category-title:contains('Forum')").find('.category-anchor');
+                var categoryAnchor2 = this.element.find(".category-title:contains('Respon Forum')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor.attr('name');
+                var categoryAnchorName2 = categoryAnchor2.attr('name');
+                categoryAnchor.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName2 + "']").hide();
                 var DialogNew = this.isNew();
                 if (!DialogNew) {
                     var user = SDD.Authorization.userDefinition.UserId;
@@ -8728,6 +8808,9 @@ var SDD;
                     function (ctx) { return "<a href=\"../sidedi/upload/" + Q.htmlEncode(ctx.value) + "\" target=\"_blank\"><i class=\"fa fa fa-file-excel-o text-red\"></i> Lihat</a>"; };
                 return columns;
             };
+            InfoDesaGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Info Desa";
+            };
             InfoDesaGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], InfoDesaGrid);
@@ -8791,37 +8874,53 @@ var SDD;
 (function (SDD) {
     var Transaction;
     (function (Transaction) {
+        var HardcodedValuesEditor = /** @class */ (function (_super) {
+            __extends(HardcodedValuesEditor, _super);
+            function HardcodedValuesEditor(container) {
+                var _this = _super.call(this, container, null) || this;
+                // add option accepts a key (id) value and display text value
+                _this.addOption("key1", "Text 1");
+                _this.addOption("key2", "Text 2");
+                // you may also use addItem which accepts a Select2Item parameter
+                _this.addItem({
+                    id: "key3",
+                    text: "Text 3"
+                });
+                // don't let selecting this one (disabled)
+                _this.addItem({
+                    id: "key4",
+                    text: "Text 4",
+                    disabled: true
+                });
+                return _this;
+            }
+            HardcodedValuesEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], HardcodedValuesEditor);
+            return HardcodedValuesEditor;
+        }(Serenity.Select2Editor));
+        Transaction.HardcodedValuesEditor = HardcodedValuesEditor;
+    })(Transaction = SDD.Transaction || (SDD.Transaction = {}));
+})(SDD || (SDD = {}));
+var SDD;
+(function (SDD) {
+    var Transaction;
+    (function (Transaction) {
         var MyCustomEditor = /** @class */ (function (_super) {
             __extends(MyCustomEditor, _super);
-            function MyCustomEditor(textArea, opt) {
-                return _super.call(this, textArea, opt) || this;
+            function MyCustomEditor(container) {
+                var _this = _super.call(this, container, null) || this;
+                // add option accepts a key (id) value and display text value
+                _this.addOption("1", "Semua");
+                _this.addOption("0", "Individual");
+                return _this;
             }
-            MyCustomEditor.prototype.getConfig = function () {
-                var config = _super.prototype.getConfig.call(this);
-                config.allowedContent = true;
-                config.autoParagraph = false;
-                return config;
-            };
-            MyCustomEditor.prototype.get_value = function () {
-                var value = _super.prototype.get_value.call(this);
-                value = trimNewlineEnd(value);
-                return value;
-            };
             MyCustomEditor = __decorate([
                 Serenity.Decorators.registerEditor()
             ], MyCustomEditor);
             return MyCustomEditor;
-        }(Serenity.HtmlContentEditor));
+        }(Serenity.Select2Editor));
         Transaction.MyCustomEditor = MyCustomEditor;
-        function trimNewlineEnd(text) {
-            /*
-            ^\|+   beginning of the string, pipe, one or more times
-            |      or
-            \|+$   pipe, one or more times, end of the string
-            */
-            return text.replace(/\s+$/g, '');
-        }
-        Transaction.trimNewlineEnd = trimNewlineEnd;
     })(Transaction = SDD.Transaction || (SDD.Transaction = {}));
 })(SDD || (SDD = {}));
 var SDD;
@@ -8830,9 +8929,21 @@ var SDD;
     (function (Transaction) {
         var ParentMessageDialog = /** @class */ (function (_super) {
             __extends(ParentMessageDialog, _super);
-            function ParentMessageDialog() {
+            function ParentMessageDialog(container) {
                 var _this = _super.call(this) || this;
                 _this.form = new Transaction.ParentMessageForm(_this.idPrefix);
+                _this.form = new Transaction.ParentMessageForm(_this.idPrefix);
+                _this.form.Option1.change(function (e) {
+                    var trackstatus = Q.toId(_this.form.Option1.value);
+                    if (trackstatus == 0) {
+                        _this.form.Detail.element.closest('.category').toggle(true);
+                        console.log("Individual");
+                    }
+                    else if (trackstatus == 1) {
+                        _this.form.Detail.element.closest('.category').toggle(false);
+                        console.log("SendAll");
+                    }
+                });
                 return _this;
             }
             ParentMessageDialog.prototype.getFormKey = function () { return Transaction.ParentMessageForm.formKey; };
@@ -8843,6 +8954,17 @@ var SDD;
             ParentMessageDialog.prototype.getDeletePermission = function () { return Transaction.ParentMessageRow.deletePermission; };
             ParentMessageDialog.prototype.getInsertPermission = function () { return Transaction.ParentMessageRow.insertPermission; };
             ParentMessageDialog.prototype.getUpdatePermission = function () { return Transaction.ParentMessageRow.updatePermission; };
+            ParentMessageDialog.prototype.beforeLoadEntity = function (entity) {
+                _super.prototype.beforeLoadEntity.call(this, entity);
+                var categoryAnchor = this.form.Detail.element.closest('.category').find('.category-anchor');
+                categoryAnchor.text("Penerima Broadcast");
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Message')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
+                var categoryAnchor3 = this.element.find(".category-title:contains('Message')").find('.category-anchor');
+                var categoryAnchorName2 = categoryAnchor2.attr('name');
+                categoryAnchor3.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName2 + "']").hide();
+            };
             ParentMessageDialog = __decorate([
                 Serenity.Decorators.registerClass()
             ], ParentMessageDialog);
@@ -8866,6 +8988,9 @@ var SDD;
             ParentMessageGrid.prototype.getInsertPermission = function () { return Transaction.ParentMessageRow.insertPermission; };
             ParentMessageGrid.prototype.getLocalTextPrefix = function () { return Transaction.ParentMessageRow.localTextPrefix; };
             ParentMessageGrid.prototype.getService = function () { return Transaction.ParentMessageService.baseUrl; };
+            ParentMessageGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Broadcast";
+            };
             ParentMessageGrid = __decorate([
                 Serenity.Decorators.registerClass()
             ], ParentMessageGrid);
@@ -8916,6 +9041,11 @@ var SDD;
                         this.set_readOnly(true);
                     }
                 }
+                var categoryAnchor = this.form.DetailPengaduan.element.closest('.category').find('.category-anchor');
+                categoryAnchor.text("Tanggapan");
+                var categoryAnchor1 = this.element.find(".category-title:contains('Pengaduan | Detail Pengaduan')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor.attr('name');
+                categoryAnchor1.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
             };
             PengaduanDialog = __decorate([
                 Serenity.Decorators.panel(),
@@ -8954,6 +9084,9 @@ var SDD;
                 Q.first(columns, function (x) { return x.field == "FotoDokumen" /* FotoDokumen */; }).format =
                     function (ctx) { return "<span class=\"label bg-info text-white\">" + ("<a href=\"" + Q.htmlEncode(ctx.value) + "\" target=\"_blank\"><i class=\"fa fa fa-file-excel-o text-red\"></i> Lihat Foto/Dokumen</a>") + "</span>"; };
                 return columns;
+            };
+            PengaduanGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Data Pengaduan";
             };
             PengaduanGrid = __decorate([
                 Serenity.Decorators.registerClass()
@@ -9028,6 +9161,9 @@ var SDD;
                 Q.first(columns, function (x) { return x.field == "LinkFormulir" /* LinkFormulir */; }).format =
                     function (ctx) { return "<span class=\"label bg-info text-white\">" + ("<a href=\"" + Q.htmlEncode(ctx.value) + "\" target=\"_blank\"><i class=\"fa fa fa-file-excel-o text-red\"></i> Lihat Formulir</a>") + "</span>"; };
                 return columns;
+            };
+            TransaksiStatusGrid.prototype.getAddButtonCaption = function () {
+                return "Tambah Approval Pengajuan";
             };
             TransaksiStatusGrid = __decorate([
                 Serenity.Decorators.registerClass()
@@ -9137,6 +9273,12 @@ var SDD;
             UserNelayanDialog.prototype.getDeletePermission = function () { return Transaction.UserNelayanRow.deletePermission; };
             UserNelayanDialog.prototype.getInsertPermission = function () { return Transaction.UserNelayanRow.insertPermission; };
             UserNelayanDialog.prototype.getUpdatePermission = function () { return Transaction.UserNelayanRow.updatePermission; };
+            UserNelayanDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Nelayan')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
+            };
             UserNelayanDialog = __decorate([
                 Serenity.Decorators.panel(),
                 Serenity.Decorators.registerClass()
@@ -9222,6 +9364,12 @@ var SDD;
             UserPerdaganganDialog.prototype.getDeletePermission = function () { return Transaction.UserPerdaganganRow.deletePermission; };
             UserPerdaganganDialog.prototype.getInsertPermission = function () { return Transaction.UserPerdaganganRow.insertPermission; };
             UserPerdaganganDialog.prototype.getUpdatePermission = function () { return Transaction.UserPerdaganganRow.updatePermission; };
+            UserPerdaganganDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Perdagangan')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
+            };
             UserPerdaganganDialog = __decorate([
                 Serenity.Decorators.panel(),
                 Serenity.Decorators.registerClass()
@@ -9272,6 +9420,12 @@ var SDD;
             UserPerikananPeternakanDialog.prototype.getDeletePermission = function () { return Transaction.UserPerikananPeternakanRow.deletePermission; };
             UserPerikananPeternakanDialog.prototype.getInsertPermission = function () { return Transaction.UserPerikananPeternakanRow.insertPermission; };
             UserPerikananPeternakanDialog.prototype.getUpdatePermission = function () { return Transaction.UserPerikananPeternakanRow.updatePermission; };
+            UserPerikananPeternakanDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Formulir')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
+            };
             UserPerikananPeternakanDialog = __decorate([
                 Serenity.Decorators.panel(),
                 Serenity.Decorators.registerClass()
@@ -9322,6 +9476,12 @@ var SDD;
             UserPertanianPerkebunanDialog.prototype.getDeletePermission = function () { return Transaction.UserPertanianPerkebunanRow.deletePermission; };
             UserPertanianPerkebunanDialog.prototype.getInsertPermission = function () { return Transaction.UserPertanianPerkebunanRow.insertPermission; };
             UserPertanianPerkebunanDialog.prototype.getUpdatePermission = function () { return Transaction.UserPertanianPerkebunanRow.updatePermission; };
+            UserPertanianPerkebunanDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var categoryAnchor2 = this.element.find(".category-title:contains('Detail Pertanian')").find('.category-anchor');
+                var categoryAnchorName = categoryAnchor2.attr('name');
+                categoryAnchor2.closest('.s-PropertyGrid').find("a[href='#" + categoryAnchorName + "']").hide();
+            };
             UserPertanianPerkebunanDialog = __decorate([
                 Serenity.Decorators.panel(),
                 Serenity.Decorators.registerClass()

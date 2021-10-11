@@ -15,8 +15,9 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:DetailUserPertanian")]
     public sealed class DetailUserPertanianRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id Detail Pertanian"), Identity]
         [SortOrder(1, descending: true)]
+        [DisplayName("Id Detail Pertanian"), Identity]
+    
         public Int32? IdDetailPertanian
         {
             get { return Fields.IdDetailPertanian[this]; }
@@ -37,14 +38,14 @@ namespace SDD.Transaction.Entities
             set { Fields.AlatBahanPendukung[this] = value; }
         }
 
-        [DisplayName("Quantity Pendukung")]
+        [DisplayName("Quantity ")]
         public Int32? QuantityPendukung
         {
             get { return Fields.QuantityPendukung[this]; }
             set { Fields.QuantityPendukung[this] = value; }
         }
 
-        [DisplayName("Nominal Pendukung"), Size(19), Scale(4)]
+        [DisplayName("Nominal "), Size(19), Scale(4)]
         public Decimal? NominalPendukung
         {
             get { return Fields.NominalPendukung[this]; }

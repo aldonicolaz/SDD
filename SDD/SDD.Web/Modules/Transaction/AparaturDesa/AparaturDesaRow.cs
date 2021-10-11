@@ -44,7 +44,7 @@ namespace SDD.Transaction.Entities
             set { Fields.IdJabatan[this] = value; }
         }
 
-        [DisplayName("Status Aparatur")]
+        [DisplayName("Status")]
         public Int32? StatusAparatur
         {
             get { return Fields.StatusAparatur[this]; }
@@ -79,7 +79,7 @@ namespace SDD.Transaction.Entities
             set { Fields.IdUserUsername[this] = value; }
         }
 
-        [DisplayName("Display Name"), Expression("jIdUser.[DisplayName]")]
+        [DisplayName("Nama Aparatur"), Expression("jIdUser.[DisplayName]")]
         public String IdUserDisplayName
         {
             get { return Fields.IdUserDisplayName[this]; }
@@ -254,7 +254,7 @@ namespace SDD.Transaction.Entities
             set { Fields.IdDesaIdKecamatan[this] = value; }
         }
 
-        [DisplayName("Nama Desa"), Expression("jIdDesa.[NamaDesa]")]
+        [DisplayName("Desa"), Expression("jIdDesa.[NamaDesa]")]
         public String IdDesaNamaDesa
         {
             get { return Fields.IdDesaNamaDesa[this]; }
@@ -289,7 +289,7 @@ namespace SDD.Transaction.Entities
             set { Fields.IdDesaLogoDesa[this] = value; }
         }
 
-        [DisplayName("Nama Jabatan"), Expression("jIdJabatan.[NamaJabatan]")]
+        [DisplayName("Jabatan "), Expression("jIdJabatan.[NamaJabatan]")]
         public String IdJabatanNamaJabatan
         {
             get { return Fields.IdJabatanNamaJabatan[this]; }

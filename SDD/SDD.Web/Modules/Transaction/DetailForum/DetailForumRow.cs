@@ -16,7 +16,7 @@ namespace SDD.Transaction.Entities
     public sealed class DetailForumRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id Detail Forum"), Identity]
-        [SortOrder(1, descending: false)]
+        [SortOrder(1, descending: true)]
         public Int32? IdDetailForum
         {
             get { return Fields.IdDetailForum[this]; }

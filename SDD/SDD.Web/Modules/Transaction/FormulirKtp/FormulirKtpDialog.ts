@@ -20,6 +20,8 @@ namespace SDD.Transaction {
           
 
             this.toolbar.findButton(".delete-button").remove();
+
+      
      
         }
     }

@@ -19,7 +19,7 @@ namespace SDD.Transaction.Columns
      
         [EditLink]
         public String DetailRespon { get; set; }
-        [Width(300)]
+        [Width(300),Visible(false)]
         public String FotoDokumenRespon { get; set; }
         [Width(200)]
         public DateTime Timestamp { get; set; }

@@ -12,6 +12,16 @@ namespace SDD.Transaction {
         protected getUpdatePermission() { return UserPertanianPerkebunanRow.updatePermission; }
 
         protected form = new UserPertanianPerkebunanForm(this.idPrefix);
+        protected afterLoadEntity() {
+            super.afterLoadEntity();
+
+            let categoryAnchor2 = this.element.find(".category-title:contains('Detail Pertanian')").find('.category-anchor');
+
+            let categoryAnchorName = categoryAnchor2.attr('name');
+
+            categoryAnchor2.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName}']`).hide();
+
+        }
 
     }
 }

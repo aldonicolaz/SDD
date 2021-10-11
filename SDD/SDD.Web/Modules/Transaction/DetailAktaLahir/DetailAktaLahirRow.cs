@@ -15,6 +15,7 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:DetailAktaLahir")]
     public sealed class DetailAktaLahirRow : Row, IIdRow, INameRow
     {
+        [SortOrder(1, descending: true)]
         [DisplayName("Id Detail Akta Lahir"), Identity]
         public Int32? IdDetailAktaLahir
         {
@@ -36,7 +37,7 @@ namespace SDD.Transaction.Entities
             set { Fields.NamaSaksi[this] = value; }
         }
 
-        [DisplayName("Tgl Lahir Saksi")]
+        [DisplayName("Tanggal Lahir Saksi")]
         public DateTime? TglLahirSaksi
         {
             get { return Fields.TglLahirSaksi[this]; }
@@ -50,7 +51,7 @@ namespace SDD.Transaction.Entities
             set { Fields.PekerjaanSaksi[this] = value; }
         }
 
-        [DisplayName("Nik Saksi"), Column("NIKSaksi"), Size(255)]
+        [DisplayName("NIK Saksi"), Column("NIKSaksi"), Size(255)]
         public String NikSaksi
         {
             get { return Fields.NikSaksi[this]; }

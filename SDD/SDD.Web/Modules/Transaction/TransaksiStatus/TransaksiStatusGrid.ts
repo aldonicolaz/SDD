@@ -26,5 +26,8 @@ namespace SDD.Transaction {
 
             return columns;
         }
+        protected getAddButtonCaption() {
+            return "Tambah Approval Pengajuan";
+        }
     }
 }

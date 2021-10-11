@@ -167,6 +167,7 @@
             return columns;
         }
 
+
         protected onClick(e: JQueryEventObject, row: number, cell: number) {
             super.onClick(e, row, cell);
 

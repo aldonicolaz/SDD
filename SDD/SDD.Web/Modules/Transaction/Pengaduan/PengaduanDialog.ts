@@ -46,7 +46,15 @@ namespace SDD.Transaction {
                     this.set_readOnly(true);
                 }
             }
+            var categoryAnchor = this.form.DetailPengaduan.element.closest('.category').find('.category-anchor');
+            categoryAnchor.text("Tanggapan");
 
+            let categoryAnchor1 = this.element.find(".category-title:contains('Pengaduan | Detail Pengaduan')").find('.category-anchor');
+            
+            let categoryAnchorName = categoryAnchor.attr('name');
+           
+            categoryAnchor1.closest('.s-PropertyGrid').find(`a[href='#${categoryAnchorName}']`).hide();
+       
         }
     }
 }

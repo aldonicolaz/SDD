@@ -16,8 +16,9 @@ namespace SDD.Transaction.Entities
     [ModifyPermission("Transaction:FormulirAktaKelahiran")]
     public sealed class FormulirAktaKelahiranRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id Form Akta Kelahiran"), Identity]
         [SortOrder(1, descending: true)]
+        [DisplayName("Id Form Akta Kelahiran"), Identity]
+       
         public Int32? IdFormAktaKelahiran
         {
             get { return Fields.IdFormAktaKelahiran[this]; }
